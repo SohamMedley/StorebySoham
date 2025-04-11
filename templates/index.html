@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dzynsbysoham & vzualsbysoham | Creative Assets</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="logo-animation">
+                <span class="logo-dzyn">dzyns</span><span class="logo-by">by</span><span class="logo-soham">soham</span>
+                <span class="logo-separator">|</span>
+                <span class="logo-vzual">vzuals</span><span class="logo-by">by</span><span class="logo-soham">soham</span>
+            </div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Header -->
+    <header class="header">
+        <nav>
+            <div class="logo">
+                <a href="/">
+                    <span class="logo-dzyn">dzyns</span><span class="logo-by">by</span><span class="logo-soham">soham</span> | 
+                    <span class="logo-vzual">vzuals</span><span class="logo-by">by</span><span class="logo-soham">soham</span>
+                </a>
+            </div>
+            <div class="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/" class="active">Home</a></li>
+                <li><a href="/store">Store</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/tutorials">Tutorials</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li class="nav-icons">
+                    <a href="#" class="icon-link search-toggle"><i class="fas fa-search"></i></a>
+                    <a href="#" class="icon-link wishlist-icon"><i class="fas fa-heart"></i><span class="count-badge wishlist-count">0</span></a>
+                    <a href="#" class="icon-link cart-icon"><i class="fas fa-shopping-cart"></i><span class="count-badge cart-count">0</span></a>
+                    <a href="#" class="icon-link account-icon"><i class="fas fa-user"></i></a>
+                </li>
+            </ul>
+        </nav>
+        
+        <!-- Search Overlay -->
+        <div class="search-overlay">
+            <div class="search-container">
+                <form class="search-form">
+                    <input type="text" placeholder="Search for assets..." class="search-input">
+                    <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
+                </form>
+                <div class="search-close"><i class="fas fa-times"></i></div>
+                <div class="search-suggestions">
+                    <h3>Popular Searches</h3>
+                    <div class="suggestion-tags">
+                        <a href="/store?tag=photoshop">Photoshop Brushes</a>
+                        <a href="/store?tag=luts">Cinematic LUTs</a>
+                        <a href="/store?tag=ui-kit">UI Kits</a>
+                        <a href="/store?tag=motion-graphics">Motion Graphics</a>
+                        <a href="/store?tag=textures">Textures</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="cart-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-empty">
+            <div class="empty-cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+            </div>
+            <p>Your cart is empty</p>
+            <a href="/store" class="btn btn-primary">Start Shopping</a>
+        </div>
+        <div class="cart-items">
+            <!-- Cart items will be dynamically added here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span class="total-amount">$0.00</span>
+            </div>
+            <a href="/checkout" class="btn btn-primary btn-checkout">Checkout</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section with 3D Animation -->
+        <section class="hero">
+            <div class="hero-content" data-aos="fade-right" data-aos-duration="1000">
+                <h1 class="glitch" data-text="Creative Assets">Creative Assets</h1>
+                <p>Premium design and video editing resources for creators</p>
+                <div class="hero-buttons">
+                    <a href="/store?category=design" class="btn btn-primary">Design Assets</a>
+                    <a href="/store?category=video" class="btn btn-secondary">Video Assets</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="stat-number">30+</span>
+                        <span class="stat-label">Premium Assets</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="stat-number">15k+</span>
+                        <span class="stat-label">Happy Customers</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="stat-number">4.9</span>
+                        <span class="stat-label">Average Rating</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual" data-aos="fade-left" data-aos-duration="1000">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="hero-canvas-container">
+                    <canvas id="hero-canvas"></canvas>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+                <div class="arrow">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Brands Section -->
+        <section class="brands-section">
+            <div class="brands-container">
+                <div class="brand-title" data-aos="fade-up">
+                    <h2>Trusted by Professionals</h2>
+                </div>
+                <div class="brands-slider">
+                    <div class="brands-track">
+                        <div class="brand-item"><img src="{{ url_for('static', filename='images/brand-1.png') }}" alt="Brand Logo">Adobe</div>
+                        <div class="brand-item"><img src="{{ url_for('static', filename='images/brand-2.png') }}" alt="Brand Logo">Figma</div>
+                        <div class="brand-item"><img src="{{ url_for('static', filename='images/brand-3.png') }}" alt="Brand Logo">Dribbble</div>
+                        <div class="brand-item"><img src="{{ url_for('static', filename='images/brand-4.png') }}" alt="Brand Logo">Behance</div>
+                        <div class="brand-item"><img src="{{ url_for('static', filename='images/brand-5.png') }}" alt="Brand Logo">Envato</div>
+                        <div class="brand-item"><img src="{{ url_for('static', filename='images/brand-6.png') }}" alt="Brand Logo">Canva</div>
+                        
+                        <!-- Duplicate for infinite scroll effect -->
+                        <div class="brand-item"><img src="{{ url_for('static', filename='images/brand-1.png') }}" alt="Brand Logo">Adobe</div>
+                        <div class="brand-item"><img src="{{ url_for('static', filename='images/brand-2.png') }}" alt="Brand Logo">Figma</div>
+                        <div class="brand-item"><img src="{{ url_for('static', filename='images/brand-3.png') }}" alt="Brand Logo">Dribbble</div>
+                        <div class="brand-item"><img src="{{ url_for('static', filename='images/brand-4.png') }}" alt="Brand Logo">Behance</div>
+                        <div class="brand-item"><img src="{{ url_for('static', filename='images/brand-5.png') }}" alt="Brand Logo">Envato</div>
+                        <div class="brand-item"><img src="{{ url_for('static', filename='images/brand-6.png') }}" alt="Brand Logo">Canva</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Section with Parallax -->
+        <section class="featured">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Featured Assets</h2>
+                <p>Handpicked premium resources for your creative projects</p>
+            </div>
+            
+            <div class="featured-tabs" data-aos="fade-up" data-aos-delay="100">
+                <button class="featured-tab active" data-category="all">All</button>
+                <button class="featured-tab" data-category="design">Design</button>
+                <button class="featured-tab" data-category="video">Video</button>
+                <button class="featured-tab" data-category="new">New Arrivals</button>
+                <button class="featured-tab" data-category="bestseller">Bestsellers</button>
+            </div>
+            
+            <div class="featured-grid" data-aos="fade-up" data-aos-delay="200">
+                <div class="featured-item" data-category="design bestseller">
+                    <div class="featured-image">
+                        <img src="{{ url_for('static', filename='images/featured-1.jpg') }}" alt="Premium UI Kit">
+                        <div class="featured-overlay">
+                            <div class="featured-actions">
+                                <button class="action-btn preview-btn" data-product="1"><i class="fas fa-eye"></i></button>
+                                <button class="action-btn cart-btn" data-product="1"><i class="fas fa-shopping-cart"></i></button>
+                                <button class="action-btn wishlist-btn" data-product="1"><i class="far fa-heart"></i></button>
+                            </div>
+                            <a href="/product/1" class="btn btn-small">View Details</a>
+                        </div>
+                        <div class="featured-badge bestseller">Bestseller</div>
+                    </div>
+                    <div class="featured-info">
+                        <div class="featured-meta">
+                            <span class="featured-category">UI Kit</span>
+                            <div class="featured-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.9</span>
+                            </div>
+                        </div>
+                        <h3>Premium UI Kit</h3>
+                        <p>Complete design system for modern interfaces</p>
+                        <div class="featured-footer">
+                            <span class="price">$39.99</span>
+                            <span class="sales">2.1k+ sales</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="featured-item" data-category="video bestseller">
+                    <div class="featured-image">
+                        <img src="{{ url_for('static', filename='images/featured-2.jpg') }}" alt="Cinematic LUTs">
+                        <div class="featured-overlay">
+                            <div class="featured-actions">
+                                <button class="action-btn preview-btn" data-product="2"><i class="fas fa-eye"></i></button>
+                                <button class="action-btn cart-btn" data-product="2"><i class="fas fa-shopping-cart"></i></button>
+                                <button class="action-btn wishlist-btn" data-product="2"><i class="far fa-heart"></i></button>
+                            </div>
+                            <a href="/product/2" class="btn btn-small">View Details</a>
+                        </div>
+                        <div class="featured-badge bestseller">Bestseller</div>
+                    </div>
+                    <div class="featured-info">
+                        <div class="featured-meta">
+                            <span class="featured-category">LUTs</span>
+                            <div class="featured-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.8</span>
+                            </div>
+                        </div>
+                        <h3>Cinematic LUTs</h3>
+                        <p>Professional color grading presets</p>
+                        <div class="featured-footer">
+                            <span class="price">$34.99</span>
+                            <span class="sales">1.8k+ sales</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="featured-item" data-category="design new">
+                    <div class="featured-image">
+                        <img src="{{ url_for('static', filename='images/featured-3.jpg') }}" alt="Social Media Pack">
+                        <div class="featured-overlay">
+                            <div class="featured-actions">
+                                <button class="action-btn preview-btn" data-product="3"><i class="fas fa-eye"></i></button>
+                                <button class="action-btn cart-btn" data-product="3"><i class="fas fa-shopping-cart"></i></button>
+                                <button class="action-btn wishlist-btn" data-product="3"><i class="far fa-heart"></i></button>
+                            </div>
+                            <a href="/product/3" class="btn btn-small">View Details</a>
+                        </div>
+                        <div class="featured-badge new">New</div>
+                    </div>
+                    <div class="featured-info">
+                        <div class="featured-meta">
+                            <span class="featured-category">Templates</span>
+                            <div class="featured-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.7</span>
+                            </div>
+                        </div>
+                        <h3>Social Media Pack</h3>
+                        <p>Templates for all major platforms</p>
+                        <div class="featured-footer">
+                            <span class="price">$29.99</span>
+                            <span class="sales">980+ sales</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="featured-item" data-category="video new">
+                    <div class="featured-image">
+                        <img src="{{ url_for('static', filename='images/featured-4.jpg') }}" alt="Motion Graphics">
+                        <div class="featured-overlay">
+                            <div class="featured-actions">
+                                <button class="action-btn preview-btn" data-product="4"><i class="fas fa-eye"></i></button>
+                                <button class="action-btn cart-btn" data-product="4"><i class="fas fa-shopping-cart"></i></button>
+                                <button class="action-btn wishlist-btn" data-product="4"><i class="far fa-heart"></i></button>
+                            </div>
+                            <a href="/product/4" class="btn btn-small">View Details</a>
+                        </div>
+                        <div class="featured-badge new">New</div>
+                    </div>
+                    <div class="featured-info">
+                        <div class="featured-meta">
+                            <span class="featured-category">Motion</span>
+                            <div class="featured-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.9</span>
+                            </div>
+                        </div>
+                        <h3>Motion Graphics</h3>
+                        <p>Dynamic elements for video projects</p>
+                        <div class="featured-footer">
+                            <span class="price">$59.99</span>
+                            <span class="sales">750+ sales</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="featured-item" data-category="design">
+                    <div class="featured-image">
+                        <img src="{{ url_for('static', filename='images/featured-5.jpg') }}" alt="Brush Pack">
+                        <div class="featured-overlay">
+                            <div class="featured-actions">
+                                <button class="action-btn preview-btn" data-product="5"><i class="fas fa-eye"></i></button>
+                                <button class="action-btn cart-btn" data-product="5"><i class="fas fa-shopping-cart"></i></button>
+                                <button class="action-btn wishlist-btn" data-product="5"><i class="far fa-heart"></i></button>
+                            </div>
+                            <a href="/product/5" class="btn btn-small">View Details</a>
+                        </div>
+                    </div>
+                    <div class="featured-info">
+                        <div class="featured-meta">
+                            <span class="featured-category">Brushes</span>
+                            <div class="featured-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.6</span>
+                            </div>
+                        </div>
+                        <h3>Artistic Brush Pack</h3>
+                        <p>Realistic digital painting brushes</p>
+                        <div class="featured-footer">
+                            <span class="price">$24.99</span>
+                            <span class="sales">1.2k+ sales</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="featured-item" data-category="video">
+                    <div class="featured-image">
+                        <img src="{{ url_for('static', filename='images/featured-6.jpg') }}" alt="Transition Pack">
+                        <div class="featured-overlay">
+                            <div class="featured-actions">
+                                <button class="action-btn preview-btn" data-product="6"><i class="fas fa-eye"></i></button>
+                                <button class="action-btn cart-btn" data-product="6"><i class="fas fa-shopping-cart"></i></button>
+                                <button class="action-btn wishlist-btn" data-product="6"><i class="far fa-heart"></i></button>
+                            </div>
+                            <a href="/product/6" class="btn btn-small">View Details</a>
+                        </div>
+                    </div>
+                    <div class="featured-info">
+                        <div class="featured-meta">
+                            <span class="featured-category">Transitions</span>
+                            <div class="featured-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.8</span>
+                            </div>
+                        </div>
+                        <h3>Seamless Transitions</h3>
+                        <p>Smooth video transitions pack</p>
+                        <div class="featured-footer">
+                            <span class="price">$49.99</span>
+                            <span class="sales">2.2k+ sales</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="featured-item" data-category="design new">
+                    <div class="featured-image">
+                        <img src="{{ url_for('static', filename='images/featured-7.jpg') }}" alt="3D Icons">
+                        <div class="featured-overlay">
+                            <div class="featured-actions">
+                                <button class="action-btn preview-btn" data-product="7"><i class="fas fa-eye"></i></button>
+                                <button class="action-btn cart-btn" data-product="7"><i class="fas fa-shopping-cart"></i></button>
+                                <button class="action-btn wishlist-btn" data-product="7"><i class="far fa-heart"></i></button>
+                            </div>
+                            <a href="/product/7" class="btn btn-small">View Details</a>
+                        </div>
+                        <div class="featured-badge new">New</div>
+                    </div>
+                    <div class="featured-info">
+                        <div class="featured-meta">
+                            <span class="featured-category">Icons</span>
+                            <div class="featured-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.7</span>
+                            </div>
+                        </div>
+                        <h3>3D Icon Collection</h3>
+                        <p>Modern isometric icon set</p>
+                        <div class="featured-footer">
+                            <span class="price">$34.99</span>
+                            <span class="sales">650+ sales</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="featured-item" data-category="video bestseller">
+                    <div class="featured-image">
+                        <img src="{{ url_for('static', filename='images/featured-8.jpg') }}" alt="Sound Effects">
+                        <div class="featured-overlay">
+                            <div class="featured-actions">
+                                <button class="action-btn preview-btn" data-product="8"><i class="fas fa-eye"></i></button>
+                                <button class="action-btn cart-btn" data-product="8"><i class="fas fa-shopping-cart"></i></button>
+                                <button class="action-btn wishlist-btn" data-product="8"><i class="far fa-heart"></i></button>
+                            </div>
+                            <a href="/product/8" class="btn btn-small">View Details</a>
+                        </div>
+                        <div class="featured-badge bestseller">Bestseller</div>
+                    </div>
+                    <div class="featured-info">
+                        <div class="featured-meta">
+                            <span class="featured-category">Audio</span>
+                            <div class="featured-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.9</span>
+                            </div>
+                        </div>
+                        <h3>Premium SFX Library</h3>
+                        <p>High-quality sound effects</p>
+                        <div class="featured-footer">
+                            <span class="price">$44.99</span>
+                            <span class="sales">1.5k+ sales</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="featured-cta" data-aos="fade-up">
+                <a href="/store" class="btn btn-primary">View All Assets</a>
+            </div>
+        </section>
+
+        <!-- Categories Section with Hover Effects -->
+        <section class="categories">
+            <div class="category-card design" data-aos="fade-right">
+                <div class="category-content">
+                    <h2>Design Assets</h2>
+                    <p>Elevate your design projects with premium resources</p>
+                    <ul class="category-features">
+                        <li><i class="fas fa-check"></i> UI Kits & Templates</li>
+                        <li><i class="fas fa-check"></i> Brushes & Textures</li>
+                        <li><i class="fas fa-check"></i> Icons & Illustrations</li>
+                        <li><i class="fas fa-check"></i> Mockups & Branding</li>
+                    </ul>
+                    <a href="/store?category=design" class="btn btn-outline">Explore Design</a>
+                </div>
+                <div class="category-hover-effect">
+                    <div class="hover-shape"></div>
+                </div>
+            </div>
+            <div class="category-card video" data-aos="fade-left">
+                <div class="category-content">
+                    <h2>Video Assets</h2>
+                    <p>Take your videos to the next level with professional tools</p>
+                    <ul class="category-features">
+                        <li><i class="fas fa-check"></i> LUTs & Color Grading</li>
+                        <li><i class="fas fa-check"></i> Transitions & Effects</li>
+                        <li><i class="fas fa-check"></i> Motion Graphics</li>
+                        <li><i class="fas fa-check"></i> Sound Effects & Music</li>
+                    </ul>
+                    <a href="/store?category=video" class="btn btn-outline">Explore Video</a>
+                </div>
+                <div class="category-hover-effect">
+                    <div class="hover-shape"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="how-it-works">
+            <div class="section-header" data-aos="fade-up">
+                <h2>How It Works</h2>
+                <p>Get started with our creative assets in three simple steps</p>
+            </div>
+            
+            <div class="steps-container">
+                <div class="step" data-aos="fade-up" data-aos-delay="100">
+                    <div class="step-number">01</div>
+                    <div class="step-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Browse & Choose</h3>
+                    <p>Explore our collection of premium design and video assets to find the perfect resources for your project.</p>
+                </div>
+                
+                <div class="step-connector" data-aos="fade-up" data-aos-delay="150"></div>
+                
+                <div class="step" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-number">02</div>
+                    <div class="step-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>Purchase & Download</h3>
+                    <p>Securely purchase your selected assets and instantly download them to your device.</p>
+                </div>
+                
+                <div class="step-connector" data-aos="fade-up" data-aos-delay="250"></div>
+                
+                <div class="step" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-number">03</div>
+                    <div class="step-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3>Create & Elevate</h3>
+                    <p>Integrate our assets into your creative workflow and take your projects to the next level.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section with Slider -->
+        <section class="testimonials">
+            <div class="section-header" data-aos="fade-up">
+                <h2>What Creators Say</h2>
+                <p>Hear from professionals who use our assets in their creative workflow</p>
+            </div>
+            
+            <div class="testimonial-slider swiper" data-aos="fade-up" data-aos-delay="100">
+                <div class="swiper-wrapper">
+                    <div class="testimonial swiper-slide">
+                        <div class="testimonial-content">
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p>"These assets have completely transformed my workflow. The quality is outstanding and they save me so much time! I've been able to deliver projects faster without compromising on quality."</p>
+                            <div class="testimonial-author">
+                                <img src="{{ url_for('static', filename='images/testimonial-1.jpg') }}" alt="Testimonial Author">
+                                <div>
+                                    <h4>Alex Johnson</h4>
+                                    <span>Freelance Designer</span>
+                                    <div class="author-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial swiper-slide">
+                        <div class="testimonial-content">
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p>"The video assets from vzualsbysoham have become essential tools in my editing process. The LUTs are incredibly versatile and the transitions pack has saved me countless hours. Highly recommended!"</p>
+                            <div class="testimonial-author">
+                                <img src="{{ url_for('static', filename='images/testimonial-2.jpg') }}" alt="Testimonial Author">
+                                <div>
+                                    <h4>Sarah Miller</h4>
+                                    <span>Content Creator</span>
+                                    <div class="author-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial swiper-slide">
+                        <div class="testimonial-content">
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p>"Professional quality assets that have helped me deliver better results to my clients. The UI kits are meticulously designed and incredibly easy to customize. Worth every penny!"</p>
+                            <div class="testimonial-author">
+                                <img src="{{ url_for('static', filename='images/testimonial-3.jpg') }}" alt="Testimonial Author">
+                                <div>
+                                    <h4>Michael Chen</h4>
+                                    <span>UI/UX Designer</span>
+                                    <div class="author-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial swiper-slide">
+                        <div class="testimonial-content">
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p>"As a video producer, I'm always looking for ways to enhance my projects. The motion graphics pack from vzualsbysoham has been a game-changer for my workflow. The quality and versatility are unmatched."</p>
+                            <div class="testimonial-author">
+                                <img src="{{ url_for('static', filename='images/testimonial-4.jpg') }}" alt="Testimonial Author">
+                                <div>
+                                    <h4>Emily Rodriguez</h4>
+                                    <span>Video Producer</span>
+                                    <div class="author-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </section>
+
+        <!-- Latest Blog Posts -->
+        <section class="latest-blog">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Latest from Our Blog</h2>
+                <p>Tips, tutorials, and insights for creative professionals</p>
+            </div>
+            
+            <div class="blog-grid" data-aos="fade-up" data-aos-delay="100">
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="{{ url_for('static', filename='images/blog-1.jpg') }}" alt="Blog Post">
+                        <div class="blog-category">Design Tips</div>
+                    </div>
+                    <div class="blog-content">
+                        <h3>10 Essential Design Principles Every Creator Should Know</h3>
+                        <p>Learn the fundamental design principles that can transform your creative work...</p>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> April 5, 2025</span>
+                            <span><i class="far fa-comment"></i> 24 Comments</span>
+                        </div>
+                        <a href="/blog/1" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="{{ url_for('static', filename='images/blog-2.jpg') }}" alt="Blog Post">
+                        <div class="blog-category">Video Editing</div>
+                    </div>
+                    <div class="blog-content">
+                        <h3>Color Grading Techniques for Cinematic Video</h3>
+                        <p>Discover professional color grading techniques that can give your videos that cinematic look...</p>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> March 22, 2025</span>
+                            <span><i class="far fa-comment"></i> 18 Comments</span>
+                        </div>
+                        <a href="/blog/2" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="{{ url_for('static', filename='images/blog-3.jpg') }}" alt="Blog Post">
+                        <div class="blog-category">Social Media</div>
+                    </div>
+                    <div class="blog-content">
+                        <h3>Creating Effective Social Media Graphics</h3>
+                        <p>Learn how to design eye-catching social media graphics that increase engagement...</p>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> March 15, 2025</span>
+                            <span><i class="far fa-comment"></i> 32 Comments</span>
+                        </div>
+                        <a href="/blog/3" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="blog-cta" data-aos="fade-up">
+                <a href="/blog" class="btn btn-secondary">View All Posts</a>
+            </div>
+        </section>
+
+        <!-- Free Resources Section -->
+        <section class="free-resources">
+            <div class="resources-container">
+                <div class="resources-content" data-aos="fade-right">
+                    <h2>Free Creative Resources</h2>
+                    <p>Download high-quality design and video assets to enhance your projects at no cost.</p>
+                    <ul class="resources-list">
+                        <li><i class="fas fa-check-circle"></i> 5 Premium Photoshop Brushes</li>
+                        <li><i class="fas fa-check-circle"></i> 3 Social Media Templates</li>
+                        <li><i class="fas fa-check-circle"></i> 2 Cinematic LUTs</li>
+                        <li><i class="fas fa-check-circle"></i> 10 Seamless Patterns</li>
+                    </ul>
+                    <a href="/free-resources" class="btn btn-primary">Download Now</a>
+                </div>
+                <div class="resources-image" data-aos="fade-left">
+                    <img src="{{ url_for('static', filename='images/free-resources.jpg') }}" alt="Free Resources">
+                    <div class="resources-shape"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section with Animated Background -->
+        <section class="newsletter">
+            <div class="newsletter-bg">
+                <div class="newsletter-particle"></div>
+                <div class="newsletter-particle"></div>
+                <div class="newsletter-particle"></div>
+                <div class="newsletter-particle"></div>
+                <div class="newsletter-particle"></div>
+                <div class="newsletter-particle"></div>
+                <div class="newsletter-particle"></div>
+                <div class="newsletter-particle"></div>
+            </div>
+            <div class="newsletter-content" data-aos="zoom-in">
+                <h2>Get Exclusive Updates</h2>
+                <p>Subscribe to our newsletter for new releases, special offers, and creative tips</p>
+                <form class="newsletter-form">
+                    <div class="form-group">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </div>
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="newsletter-consent" checked>
+                        <label for="newsletter-consent">I agree to receive emails about product updates and promotional offers</label>
+                    </div>
+                </form>
+                <div class="newsletter-features">
+                    <div class="newsletter-feature">
+                        <i class="fas fa-gift"></i>
+                        <span>Exclusive Offers</span>
+                    </div>
+                    <div class="newsletter-feature">
+                        <i class="fas fa-bell"></i>
+                        <span>New Releases</span>
+                    </div>
+                    <div class="newsletter-feature">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Creative Tips</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-top">
+                <div class="footer-logo">
+                    <span class="logo-dzyn">dzyns</span><span class="logo-by">by</span><span class="logo-soham">soham</span> | 
+                    <span class="logo-vzual">vzuals</span><span class="logo-by">by</span><span class="logo-soham">soham</span>
+                </div>
+                <div class="footer-newsletter">
+                    <h3>Stay Updated</h3>
+                    <form class="footer-newsletter-form">
+                        <input type="email" placeholder="Your email address">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/store">Store</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/tutorials">Tutorials</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Categories</h3>
+                    <ul>
+                        <li><a href="/store?category=design">Design Assets</a></li>
+                        <li><a href="/store?category=video">Video Assets</a></li>
+                        <li><a href="/store?tag=free">Free Resources</a></li>
+                        <li><a href="/store?tag=premium">Premium Content</a></li>
+                        <li><a href="/store?tag=new">New Arrivals</a></li>
+                        <li><a href="/store?tag=bestseller">Bestsellers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="/help">Help Center</a></li>
+                        <li><a href="/faq">FAQs</a></li>
+                        <li><a href="/terms">Terms of Service</a></li>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/license">License Information</a></li>
+                        <li><a href="/refund">Refund Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect</h3>
+                    <div class="social-icons">
+                        <a href="#" target="_blank" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank" class="social-icon behance"><i class="fab fa-behance"></i></a>
+                        <a href="#" target="_blank" class="social-icon youtube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" target="_blank" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank" class="social-icon dribbble"><i class="fab fa-dribbble"></i></a>
+                        <a href="#" target="_blank" class="social-icon pinterest"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> hello@dzynsbysoham.com</p>
+                        <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 dzynsbysoham & vzualsbysoham. All rights reserved.</p>
+            <div class="payment-methods">
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-amex"></i>
+                <i class="fab fa-cc-paypal"></i>
+                <i class="fab fa-cc-apple-pay"></i>
+                <i class="fab fa-cc-discover"></i>
+            </div>
+        </div>
+        
+        <!-- Back to Top Button -->
+        <div class="back-to-top">
+            <i class="fas fa-arrow-up"></i>
+        </div>
+    </footer>
+
+    <!-- Preview Modal -->
+    <div class="preview-modal">
+        <div class="preview-content">
+            <button class="preview-close"><i class="fas fa-times"></i></button>
+            <div class="preview-header">
+                <h3>Product Preview</h3>
+            </div>
+            <div class="preview-body">
+                <!-- Preview content will be loaded here -->
+            </div>
+            <div class="preview-footer">
+                <button class="btn btn-secondary preview-close-btn">Close</button>
+                <a href="#" class="btn btn-primary preview-details-btn">View Details</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div class="toast-container">
+        <!-- Toasts will be dynamically added here -->
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

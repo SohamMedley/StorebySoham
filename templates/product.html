@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ product.name }} | dzynsbysoham & vzualsbysoham</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/product.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="logo-animation">
+                <span class="logo-dzyn">dzyns</span><span class="logo-by">by</span><span class="logo-soham">soham</span>
+                <span class="logo-separator">|</span>
+                <span class="logo-vzual">vzuals</span><span class="logo-by">by</span><span class="logo-soham">soham</span>
+            </div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Header -->
+    <header class="header scrolled">
+        <nav>
+            <div class="logo">
+                <a href="/">
+                    <span class="logo-dzyn">dzyns</span><span class="logo-by">by</span><span class="logo-soham">soham</span> | 
+                    <span class="logo-vzual">vzuals</span><span class="logo-by">by</span><span class="logo-soham">soham</span>
+                </a>
+            </div>
+            <div class="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/store" class="active">Store</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/tutorials">Tutorials</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li class="nav-icons">
+                    <a href="#" class="icon-link search-toggle"><i class="fas fa-search"></i></a>
+                    <a href="#" class="icon-link wishlist-icon"><i class="fas fa-heart"></i><span class="count-badge wishlist-count">0</span></a>
+                    <a href="#" class="icon-link cart-icon"><i class="fas fa-shopping-cart"></i><span class="count-badge cart-count">0</span></a>
+                    <a href="#" class="icon-link account-icon"><i class="fas fa-user"></i></a>
+                </li>
+            </ul>
+        </nav>
+        
+        <!-- Search Overlay -->
+        <div class="search-overlay">
+            <div class="search-container">
+                <form class="search-form">
+                    <input type="text" placeholder="Search for assets..." class="search-input">
+                    <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
+                </form>
+                <div class="search-close"><i class="fas fa-times"></i></div>
+                <div class="search-suggestions">
+                    <h3>Popular Searches</h3>
+                    <div class="suggestion-tags">
+                        <a href="/store?tag=photoshop">Photoshop Brushes</a>
+                        <a href="/store?tag=luts">Cinematic LUTs</a>
+                        <a href="/store?tag=ui-kit">UI Kits</a>
+                        <a href="/store?tag=motion-graphics">Motion Graphics</a>
+                        <a href="/store?tag=textures">Textures</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="cart-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-empty">
+            <div class="empty-cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+            </div>
+            <p>Your cart is empty</p>
+            <a href="/store" class="btn btn-primary">Start Shopping</a>
+        </div>
+        <div class="cart-items">
+            <!-- Cart items will be dynamically added here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span class="total-amount">$0.00</span>
+            </div>
+            <a href="/checkout" class="btn btn-primary btn-checkout">Checkout</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <div class="container">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/store">Store</a></li>
+                    <li><a href="/store?category={{ product.category }}">{{ product.category|capitalize }}</a></li>
+                    <li class="active">{{ product.name }}</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Product Detail Section -->
+        <section class="product-detail">
+            <div class="container">
+                <div class="product-grid">
+                    <div class="product-gallery" data-aos="fade-right">
+                        <div class="gallery-main">
+                            <div class="swiper gallery-main-swiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <img src="{{ url_for('static', filename=product.image) }}" alt="{{ product.name }}">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="{{ url_for('static', filename='images/product-detail-2.jpg') }}" alt="{{ product.name }}">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="{{ url_for('static', filename='images/product-detail-3.jpg') }}" alt="{{ product.name }}">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="{{ url_for('static', filename='images/product-detail-4.jpg') }}" alt="{{ product.name }}">
+                                    </div>
+                                </div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                            </div>
+                        </div>
+                        <div class="gallery-thumbs">
+                            <div class="swiper gallery-thumbs-swiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        

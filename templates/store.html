@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store | dzynsbysoham & vzualsbysoham</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="/">
+                    <span class="logo-dzyn">dzyns</span><span class="logo-by">by</span><span class="logo-soham">soham</span> | 
+                    <span class="logo-vzual">vzuals</span><span class="logo-by">by</span><span class="logo-soham">soham</span>
+                </a>
+            </div>
+            <div class="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/store" class="active">Store</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="store-header">
+            <h1>Creative Assets Store</h1>
+            <p>Premium resources for designers and video editors</p>
+            
+            <div class="store-filters">
+                <div class="filter-tabs">
+                    <button class="filter-tab active" data-filter="all">All Assets</button>
+                    <button class="filter-tab" data-filter="design">Design</button>
+                    <button class="filter-tab" data-filter="video">Video</button>
+                </div>
+                
+                <div class="filter-sort">
+                    <select id="sort-select">
+                        <option value="featured">Featured</option>
+                        <option value="newest">Newest</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <section class="store-grid">
+            <div class="sidebar">
+                <div class="sidebar-section">
+                    <h3>Categories</h3>
+                    <ul class="sidebar-list">
+                        <li><a href="#" class="active">All Categories</a></li>
+                        <li><a href="#">UI Kits</a></li>
+                        <li><a href="#">Brushes & Textures</a></li>
+                        <li><a href="#">Mockups</a></li>
+                        <li><a href="#">LUTs & Presets</a></li>
+                        <li><a href="#">Motion Graphics</a></li>
+                        <li><a href="#">Sound Effects</a></li>
+                    </ul>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h3>Price Range</h3>
+                    <div class="price-slider">
+                        <input type="range" min="0" max="100" value="100" class="slider" id="price-range">
+                        <div class="price-values">
+                            <span>$0</span>
+                            <span id="price-value">$100</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h3>Tags</h3>
+                    <div class="tag-cloud">
+                        <a href="#" class="tag">Photoshop</a>
+                        <a href="#" class="tag">Premiere Pro</a>
+                        <a href="#" class="tag">After Effects</a>
+                        <a href="#" class="tag">Illustrator</a>
+                        <a href="#" class="tag">Figma</a>
+                        <a href="#" class="tag">Social Media</a>
+                        <a href="#" class="tag">Cinematic</a>
+                        <a href="#" class="tag">Typography</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="products">
+                <h2>Design Assets</h2>
+                <div class="product-grid">
+                    {% for asset in design_assets %}
+                    <div class="product-card" data-category="{{ asset.category }}">
+                        <div class="product-image">
+                            <img src="{{ asset.image }}" alt="{{ asset.name }}">
+                            <div class="product-actions">
+                                <button class="action-btn preview-btn"><i class="fas fa-eye"></i></button>
+                                <button class="action-btn cart-btn"><i class="fas fa-shopping-cart"></i></button>
+                                <button class="action-btn wishlist-btn"><i class="far fa-heart"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>{{ asset.name }}</h3>
+                            <span class="product-price">${{ asset.price }}</span>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                
+                <h2>Video Assets</h2>
+                <div class="product-grid">
+                    {% for asset in video_assets %}
+                    <div class="product-card" data-category="{{ asset.category }}">
+                        <div class="product-image">
+                            <img src="{{ asset.image }}" alt="{{ asset.name }}">
+                            <div class="product-actions">
+                                <button class="action-btn preview-btn"><i class="fas fa-eye"></i></button>
+                                <button class="action-btn cart-btn"><i class="fas fa-shopping-cart"></i></button>
+                                <button class="action-btn wishlist-btn"><i class="far fa-heart"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>{{ asset.name }}</h3>
+                            <span class="product-price">${{ asset.price }}</span>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span class="logo-dzyn">dzyns</span><span class="logo-by">by</span><span class="logo-soham">soham</span> | 
+                <span class="logo-vzual">vzuals</span><span class="logo-by">by</span><span class="logo-soham">soham</span>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/store">Store</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Categories</h3>
+                    <ul>
+                        <li><a href="/store?category=design">Design Assets</a></li>
+                        <li><a href="/store?category=video">Video Assets</a></li>
+                        <li><a href="/store?tag=free">Free Resources</a></li>
+                        <li><a href="/store?tag=premium">Premium Content</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="/terms">Terms of Service</a></li>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/license">License Information</a></li>
+                        <li><a href="/refund">Refund Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect</h3>
+                    <div class="social-icons">
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-behance"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 dzynsbysoham & vzualsbysoham. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
